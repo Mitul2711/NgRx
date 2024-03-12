@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './reducers';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { StoreModule } from '@ngrx/store';
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot(rootReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
