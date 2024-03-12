@@ -1,17 +1,19 @@
 import { UserData } from "../models/userData";
 import { Action } from '@ngrx/store';
-import { USER_LIST_REQUEST, USER_LIST_SUCESS, UserListSuccess } from '../actions/user-action';
+import { USER_LIST_ERROR, USER_LIST_REQUEST, USER_LIST_SUCESS, UserListSuccess } from '../actions/user-action';
 
 
 export interface UserReducerState {
     loading: Boolean,
     loaded: boolean,
+    error: boolean,
     users: UserData[]
 }
 
 const initialState: UserReducerState = {
     loading: false,
     loaded: false,
+    error: false,
     users: []
 };
 
@@ -22,7 +24,10 @@ export function UserReducer(state = initialState, action: Action): UserReducerSt
         }
         case USER_LIST_SUCESS: {
             const updatedUser = state.users.concat((action as UserListSuccess).payload.data);
-            return { ...state, loaded: true, loading: false, users: updatedUser };
+            return { ...state, loaded: true, loading: false, users: updatedUser, error: false };
+        }
+        case USER_LIST_ERROR: {
+            return {...state, error: true, loading: false}
         }
         default: {
             return state;
@@ -33,3 +38,4 @@ export function UserReducer(state = initialState, action: Action): UserReducerSt
 export const getLoaded = (state: UserReducerState) => state.loaded;
 export const getLoading = (state: UserReducerState) => state.loading;
 export const getUsers = (state: UserReducerState) => state.users;
+export const getError = (state: UserReducerState) => state.error;

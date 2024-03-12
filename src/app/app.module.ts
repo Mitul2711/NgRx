@@ -18,6 +18,8 @@ import {MatTableModule} from '@angular/material/table';
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './reducers';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,11 +33,13 @@ import { rootReducer } from './reducers';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
+    MatIconModule,  
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
-    StoreModule.forRoot(rootReducer)
+    StoreModule.forRoot(rootReducer),
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,3 +14,4 @@ export const getUserState = (state : RootReducerState) => state.users;
 export const getUserloaded = createSelector(getUserState, fromUser.getLoaded);
 export const getUserloading = createSelector(getUserState, fromUser.getLoading);
 export const getUsers = createSelector(getUserState, fromUser.getUsers);
+export const getUserError = createSelector(getUserState, fromUser.getError);
