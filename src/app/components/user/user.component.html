@@ -1,4 +1,4 @@
-<button mat-raised-button class="btn" (click)="onAdd()">Add Data</button>
+<button mat-raised-button class="btn" (click)="onAdd()" *ngIf="!loading && !error">Add Data</button>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!loading && !error">
 
