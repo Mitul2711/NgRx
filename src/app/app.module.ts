@@ -15,9 +15,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 import { StoreModule } from '@ngrx/store';
 import { rootReducer } from './reducers/index-reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UpdateComponent } from './components/update/update.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +33,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     DashBoardComponent,
     UserComponent,
     PostComponent,
-    HeaderComponent
+    HeaderComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +47,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MatTableModule,
     StoreModule.forRoot(rootReducer),
     MatIconModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
-
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

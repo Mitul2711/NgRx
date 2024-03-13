@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Store } from '@ngrx/store';
 import { RootReducerState, getUserError, getUserloaded, getUserloading, getUsers } from '../reducers/index-reducer';
-import { UserListError, UserListRequest, UserListSuccess } from '../actions/user-action';
+import { UserAddAction, UserDeleteAction, UserListError, UserListRequest, UserListSuccess, UserUpdateAction } from '../actions/user-action';
 import { Observable, combineLatest, take } from 'rxjs';
 import { UserData } from '../models/userData';
 import { getError } from '../reducers/user-reducer';
@@ -34,7 +34,18 @@ export class ReduxService {
     return [loading$, getUsersData$, getError$]
   }
 
-  
+  deleteUser(id: any) {
+    this.store.dispatch(new UserDeleteAction({id}));
+  }
+
+  updateUser(data: any) {
+    this.store.dispatch(new UserUpdateAction(data));
+  }
+
+  addUser(data: any) {
+    this.store.dispatch(new UserAddAction(data));
+  }
+   
 }
 
   

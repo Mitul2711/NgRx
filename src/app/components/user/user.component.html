@@ -1,8 +1,10 @@
+<button mat-raised-button class="btn" (click)="onAdd()">Add Data</button>
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="!loading && !error">
 
   <ng-container matColumnDef="Id">
     <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    <td mat-cell *matCellDef="let i = index"> {{i+1}} </td>
   </ng-container>
 
   <ng-container matColumnDef="Name">
@@ -28,8 +30,8 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef> Action </th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="warn">Delete</button>
-      <button mat-raised-button color="primary">Edit</button>
+      <button mat-raised-button color="warn" (click)="onDelete(element.id)">Delete</button>
+      <button mat-raised-button color="primary" (click)="onEdit(element)">Edit</button>
     </td>
   </ng-container>
 

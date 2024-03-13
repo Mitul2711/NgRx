@@ -1,0 +1,30 @@
+<form [formGroup]="userForm" (submit)="update()">
+    <div class="container">
+
+        <div>
+         <mat-form-field class="finput">
+             <input type="text" matInput placeholder="Name" formControlName="name">
+         </mat-form-field>
+        
+         <mat-form-field>
+             <input type="text" matInput placeholder="userName" formControlName="username">
+         </mat-form-field>
+        </div>
+     
+         <div>
+             <mat-form-field class="finput">
+                 <input type="text" matInput placeholder="Email" formControlName="email">
+             </mat-form-field>    
+         
+             <mat-form-field>
+                 <input type="text" matInput placeholder="Website" formControlName="website">
+             </mat-form-field>
+         </div>
+     
+         <div>
+             <button mat-raised-button color="primary" *ngIf="this.data">Update</button>
+             <button mat-raised-button color="primary" *ngIf="!this.data">Add Data</button>
+         </div>
+     
+     </div>
+</form>
