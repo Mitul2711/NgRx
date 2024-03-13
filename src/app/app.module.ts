@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { StoreModule } from '@ngrx/store';
-import { rootReducer } from './reducers';
+import { rootReducer } from './reducers/index-reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -38,7 +39,8 @@ import { rootReducer } from './reducers';
     HttpClientModule,
     MatTableModule,
     StoreModule.forRoot(rootReducer),
-    MatIconModule
+    MatIconModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
 
   ],
   providers: [],

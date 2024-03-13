@@ -6,8 +6,8 @@ export interface RootReducerState {
 }
 
 export const rootReducer: ActionReducerMap<RootReducerState> = {
-    users: fromUser.UserReducer
-}
+    users: fromUser.UserReducer,
+};
 
 export const getUserState = (state : RootReducerState) => state.users;
 

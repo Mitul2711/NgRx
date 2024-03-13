@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Store } from '@ngrx/store';
-import { RootReducerState, getUserError, getUserloaded, getUserloading, getUsers } from '../reducers';
+import { RootReducerState, getUserError, getUserloaded, getUserloading, getUsers } from '../reducers/index-reducer';
 import { UserListError, UserListRequest, UserListSuccess } from '../actions/user-action';
 import { Observable, combineLatest, take } from 'rxjs';
 import { UserData } from '../models/userData';
@@ -33,6 +33,8 @@ export class ReduxService {
     })
     return [loading$, getUsersData$, getError$]
   }
+
+  
 }
 
   

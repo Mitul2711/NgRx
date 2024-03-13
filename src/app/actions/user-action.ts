@@ -4,6 +4,7 @@ import { UserData } from "../models/userData";
 export const USER_LIST_REQUEST = "user list request";
 export const USER_LIST_SUCESS = "user list sucess";
 export const USER_LIST_ERROR = "user list error";
+export const USER_DELETE = "user delete";
 // export const USER_LIST_FAILED = "user list failed";
 
 export class UserListRequest implements Action {
@@ -13,7 +14,13 @@ export class UserListRequest implements Action {
 export class UserListSuccess implements Action {
   readonly type = USER_LIST_SUCESS;
 
-  constructor(public payload: { data: UserData }) { }
+  constructor(public payload: { data: UserData[] }) { }
+}
+
+export class UserDeleteAction implements Action {
+  readonly type = USER_DELETE;
+
+  constructor(public payload: { id: number }) { }
 }
 
 export class UserListError implements Action {

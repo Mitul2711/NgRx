@@ -1,6 +1,6 @@
 import { UserData } from "../models/userData";
-import { Action } from '@ngrx/store';
-import { USER_LIST_ERROR, USER_LIST_REQUEST, USER_LIST_SUCESS, UserListSuccess } from '../actions/user-action';
+import { UserAction } from '../actions/index-action';
+import { USER_DELETE, USER_LIST_ERROR, USER_LIST_REQUEST, USER_LIST_SUCESS, UserListSuccess } from '../actions/user-action';
 
 
 export interface UserReducerState {
@@ -17,7 +17,7 @@ const initialState: UserReducerState = {
     users: []
 };
 
-export function UserReducer(state = initialState, action: Action): UserReducerState {
+export function UserReducer(state = initialState, action: UserAction): UserReducerState {
     switch (action.type) {
         case USER_LIST_REQUEST: {
             return { ...state, loading: true };
@@ -27,7 +27,11 @@ export function UserReducer(state = initialState, action: Action): UserReducerSt
             return { ...state, loaded: true, loading: false, users: updatedUser, error: false };
         }
         case USER_LIST_ERROR: {
-            return {...state, error: true, loading: false}
+            return { ...state, error: true, loading: false }
+        }
+        case USER_DELETE: {
+            const users = state.users.filter(data => data.id !== action.payload.id)
+            return { ...state, ...{users} }
         }
         default: {
             return state;

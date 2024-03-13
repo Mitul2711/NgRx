@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   error: Boolean = false;
   dataSource: MatTableDataSource<any>;
 
-  displayedColumns: string[] = ['Id', 'Name', 'userName', 'Email', 'WebSite'];
+  displayedColumns: string[] = ['Id', 'Name', 'userName', 'Email', 'WebSite', 'action'];
 
     constructor(private reduxService: ReduxService) {
     this.dataSource = new MatTableDataSource<any>(this.userData);
