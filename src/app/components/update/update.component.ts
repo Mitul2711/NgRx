@@ -38,7 +38,6 @@ export class UpdateComponent implements OnInit {
   }
 
   update() {
-    debugger
     const updatedUser = { ...this.data, ...this.userForm.value };
     if (this.data) {
       this.reduxService.updateUser(updatedUser);
