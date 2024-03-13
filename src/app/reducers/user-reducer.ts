@@ -1,6 +1,6 @@
 import { UserData } from "../models/userData";
-import { UserAction } from '../actions/index-action';
 import { USER_ADD, USER_DELETE, USER_LIST_ERROR, USER_LIST_REQUEST, USER_LIST_SUCESS, USER_UPDATE, UserListSuccess } from '../actions/user-action';
+import { UserAction } from "../actions";
 
 
 export interface UserReducerState {
@@ -39,8 +39,8 @@ export function UserReducer(state = initialState, action: UserAction): UserReduc
             return { ...state, ...{ users: updatedData } }
         }
         case USER_ADD: {
-            const users = state.users.concat(action.payload);
-            return { ...state, ...{ users } }
+            const addedData = state.users.concat(action.payload);
+            return { ...state, ...{ users: addedData } }
         }
         default: {
             return state;

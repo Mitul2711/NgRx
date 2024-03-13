@@ -20,7 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
 import { StoreModule } from '@ngrx/store';
-import { rootReducer } from './reducers/index-reducer';
+import { rootReducer } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UpdateComponent } from './components/update/update.component';
 import { ReactiveFormsModule } from '@angular/forms';
